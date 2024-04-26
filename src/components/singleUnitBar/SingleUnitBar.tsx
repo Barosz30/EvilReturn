@@ -1,17 +1,20 @@
-import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
-export default function SingleUnitBar({ incomeSource }) {
+export default function SingleUnitBar({ incomeSource, values }) {
     return (
         <View style={[outerView.container, { backgroundColor: incomeSource.backgroundColor }]}>
             <View>
                 <Image source={incomeSource.imageSrc} style={styles.image} />
             </View>
-            <View>
-                <Text style={styles.newText}>{incomeSource.name}</Text>
-                <Text>Try editing me! 🎉</Text>
-            </View>
+            <View style={styles.nameAndBarContainer}>
+                    <Text style={styles.newText}>{incomeSource.name}</Text>
+                    <View style={styles.progressBackground} />
             
+                {/* <TouchableOpacity>
+                    
+                </TouchableOpacity> */}
+            </View>
         </View>
     );
 }
@@ -30,8 +33,13 @@ const outerView = StyleSheet.create({
 });
 
 const styles = StyleSheet.create({
+    nameAndBarContainer: {
+        flex: 1,
+        flexDirection: 'column',
+        alignItems: 'center'
+    },
     newText: {
-        marginBottom: 5,
+        marginVertical: 5,
         fontSize: 16,
         fontWeight: 'bold',
     },
@@ -41,4 +49,11 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         margin: 10,
     },
+    progressBackground: {
+        backgroundColor: 'gray',
+        flex: 1,
+        marginVertical: 10,
+        width: '90%',
+        borderRadius: 10,
+    }
 });

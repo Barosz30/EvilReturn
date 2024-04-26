@@ -3,6 +3,7 @@
     "name": "EvilReturn",
     "slug": "EvilReturn",
     "version": "1.0.0",
+    "scheme": "evilReturn",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
